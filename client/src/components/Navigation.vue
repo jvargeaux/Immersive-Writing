@@ -7,6 +7,7 @@
         <li><router-link to="/about">About</router-link></li>
         <li><router-link to="/list">Cafe List</router-link></li>
         <li><router-link to="/map">Map</router-link></li>
+        <li><router-link to="/api">API</router-link></li>
       </ul>
     </nav>
   </div>

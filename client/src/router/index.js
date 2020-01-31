@@ -4,6 +4,7 @@ import Home from '../views/Home.vue'
 import About from '../views/About.vue'
 import List from '../views/List.vue'
 import Map from '../views/Map.vue'
+import API from '../views/API.vue'
 
 Vue.use(VueRouter)
 
@@ -27,6 +28,11 @@ const routes = [
     path: '/map',
     name: 'map',
     component: Map
+  },
+  {
+    path: '/api',
+    name: 'api',
+    component: API
   }
 ]
 

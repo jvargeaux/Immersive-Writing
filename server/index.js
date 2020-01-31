@@ -1,14 +1,28 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+const cors = require('cors');
 const app = express();
 
 // Middleware
-app.use(express.json());
+app.use(cors());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+// app.use(express.json());
+// Set headers, was getting Type Error: Failed to Fetch without this
+app.use((req, res, next) => {
+  // res.set({
+  //   'Access-Control-Allow-Origin': '*',
+  //   'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH',
+  //   'Access-Control-Allow-Headers': 'Content-Type, Authorization'
+  // });
+  next();
+});
 
 // GET
 app.get('/', (req, res) => {
   res.send('<h1>Wazzup</h1>');
-})
+});
 
 
 // DB Connect String
@@ -21,6 +35,7 @@ mongoose.connect(dbString, { useNewUrlParser: true, useUnifiedTopology: true })
 
 
 // ROUTES
+app.use('/api/cafes', require('../routes/api/cafes'));
 app.use('/api/posts', require('../routes/api/posts'));
 
 
