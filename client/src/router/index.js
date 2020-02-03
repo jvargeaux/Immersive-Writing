@@ -5,6 +5,8 @@ import About from '../views/About.vue'
 import List from '../views/List.vue'
 import Map from '../views/Map.vue'
 import API from '../views/API.vue'
+import Login from '../views/Login.vue'
+import Register from '../views/Register.vue'
 
 Vue.use(VueRouter)
 
@@ -33,6 +35,16 @@ const routes = [
     path: '/api',
     name: 'api',
     component: API
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: Login
+  },
+  {
+    path: '/register',
+    name: 'register',
+    component: Register
   }
 ]
 

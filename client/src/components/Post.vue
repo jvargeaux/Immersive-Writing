@@ -28,7 +28,7 @@
     display: flex;
     flex-direction: column;
     color: #e8e8e8;
-    padding: 60px 120px;
+    padding-bottom: 120px;
   }
   .post-header {
     display: flex;

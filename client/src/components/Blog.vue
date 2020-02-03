@@ -1,6 +1,6 @@
 <template>
   <div class="blog">
-    <p id="output"></p>
+    <h1>Blog</h1>
     <div class="postContainer"
     v-for="(post, index) in posts"
     :key="index">
@@ -55,6 +55,18 @@
 
 <style scoped>
   .blog {
-
+    padding: 5vh 8vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .postContainer {
+    max-width: 1000px;
+  }
+  h1 {
+    font-family: 'Julius Sans One', sans-serif;
+    text-align: center;
+    margin-bottom: 5vh;
   }
 </style>

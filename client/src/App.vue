@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <Navigation />
-    <router-view/>
+    <div class="router">
+      <router-view/>
+    </div>
     <Footer />
   </div>
 </template>
@@ -20,6 +22,7 @@
 </script>
 
 <style>
+@import 'https://fonts.googleapis.com/css?family=Julius+Sans+One&display=swap';
 
 * {
   margin: 0;
@@ -47,5 +50,9 @@ a {
 
 a.router-link-exact-active {
   /* color: #42b983; */
+}
+
+.router {
+  background: linear-gradient(45deg, #d5d5d5, #fff);
 }
 </style>
