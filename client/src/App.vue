@@ -19,6 +19,8 @@
       Footer
     }
   }
+
+  document.title = 'Cafe Tour Tokyo';
 </script>
 
 <style>
