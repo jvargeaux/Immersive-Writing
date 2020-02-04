@@ -20,9 +20,11 @@ module.exports = {
     devServer: {
       progress: false
     }
-  }
+  },
+  publicPath: ''
 }
 
+// process.env.NODE_ENV === 'production' ? '/dist' : '/'
 
 // module.exports = {
 //   devServer: {
