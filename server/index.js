@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -43,12 +44,12 @@ app.use('/login', require('../routes/login'));
 app.use('/register', require('../routes/api/users'));
 app.use('/dashboard', require('../routes/dashboard'));
 
-// app.use('/static', express.static(path.join(__dirname,"../client/dist/static/")));
+app.use(express.static(path.join(__dirname,"../client/dist/")));
 app.get('/', function(req,res) {
-   res.sendFile('index.html', { root: path.join(__dirname, '../client/dist/') });
+   res.sendFile(path.join(__dirname, '../client/dist/index.html'));
 });
 
 
-const port = process.env.PORT | 80;
+const port = process.env.PORT || 5000;
 
 app.listen(port, () => console.log(`Server running on port ${port}.`));
