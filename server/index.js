@@ -43,7 +43,12 @@ app.use('/login', require('../routes/login'));
 app.use('/register', require('../routes/api/users'));
 app.use('/dashboard', require('../routes/dashboard'));
 
+// app.use('/static', express.static(path.join(__dirname,"../client/dist/static/")));
+app.get('/', function(req,res) {
+   res.sendFile('index.html', { root: path.join(__dirname, '../client/dist/') });
+});
 
-const port = 5000;
+
+const port = process.env.PORT | 80;
 
 app.listen(port, () => console.log(`Server running on port ${port}.`));

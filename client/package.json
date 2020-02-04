@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "HOST='0.0.0.0' PORT=80 vue-cli-service serve --silent",
+    "serve": "vue-cli-service serve --silent",
     "build": "vue-cli-service build --silent",
     "lint": "vue-cli-service lint --silent"
   },
