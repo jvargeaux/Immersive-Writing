@@ -44,6 +44,6 @@ app.use('/register', require('../routes/api/users'));
 app.use('/dashboard', require('../routes/dashboard'));
 
 
-const port = process.env.PORT || 5000;
+const port = 5000;
 
 app.listen(port, () => console.log(`Server running on port ${port}.`));
