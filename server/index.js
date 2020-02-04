@@ -18,9 +18,9 @@ app.use(bodyParser.json());
 
 
 // GET
-// app.get('/', (req, res) => {
-//   res.send('<h1>Wazzup</h1>');
-// });
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/dist/index.html'));
+});
 
 
 // ===============
@@ -44,10 +44,10 @@ app.use('/login', require('../routes/login'));
 app.use('/register', require('../routes/api/users'));
 app.use('/dashboard', require('../routes/dashboard'));
 
-app.use(express.static(path.join(__dirname,"../client/dist/")));
-app.get('/', function(req,res) {
-   res.sendFile(path.join(__dirname, '../client/dist/index.html'));
-});
+app.use(express.static(path.join(__dirname, '../client/dist/')));
+// app.get('/', function(req,res) {
+//    res.sendFile(path.join(__dirname, '../client/dist/index.html'));
+// });
 
 
 const port = process.env.PORT || 5000;
