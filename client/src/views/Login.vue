@@ -16,7 +16,7 @@
 </template>
 
 <script>
-  const LOGIN_URL = window.location.hostname + '/login';
+  const LOGIN_URL = window.location.hostname + ':5000/login';
 
   export default {
     name: 'Login',

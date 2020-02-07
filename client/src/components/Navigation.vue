@@ -25,7 +25,7 @@
 </template>
 
 <script>
-  const DASHBOARD_URL = window.location.hostname + '/dashboard';
+  const DASHBOARD_URL = window.location.hostname + ':5000/dashboard';
 
   export default {
     name: 'Navigation',

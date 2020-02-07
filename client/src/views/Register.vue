@@ -26,7 +26,7 @@
 </template>
 
 <script>
-  const REGISTER_URL = window.location.hostname + '/register';
+  const REGISTER_URL = window.location.hostname + ':5000/register';
 
   export default {
     name: 'Register',
