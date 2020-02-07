@@ -17,7 +17,9 @@
   import Cafe from './Cafe.vue';
   import CompactCafe from './CompactCafe.vue';
 
-  const API_CAFE_URL = window.location.hostname + ':5000/api/cafes';
+  const API_CAFE_URL = window.location.hostname === 'localhost' ?
+    'http://' + window.location.hostname + ':5000/api/cafes' :
+    'https://' + window.location.host + '/api/cafes';
 
   export default {
     name: 'CompactCafeList',

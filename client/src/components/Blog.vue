@@ -1,5 +1,6 @@
 <template>
   <div class="blog">
+    <p id="output"></p>
     <h1>Blog</h1>
     <div class="postContainer"
     v-for="(post, index) in posts"
@@ -12,7 +13,9 @@
 <script>
   import Post from './Post.vue';
 
-  const API_POST_URL = window.location.hostname + ':5000/api/posts';
+  const API_POST_URL = window.location.hostname === 'localhost' ?
+    'http://' + window.location.hostname + ':5000/api/posts' :
+    'https://' + window.location.host + '/api/posts';
 
   export default {
     name: 'Blog',

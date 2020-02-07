@@ -25,8 +25,10 @@
 </template>
 
 <script>
-  const DASHBOARD_URL = window.location.hostname + ':5000/dashboard';
-
+  const DASHBOARD_URL = window.location.hostname === 'localhost' ?
+    'http://' + window.location.hostname + ':5000/dashboard' :
+    'https://' + window.location.host + '/dashboard';
+  
   export default {
     name: 'Navigation',
     props: {

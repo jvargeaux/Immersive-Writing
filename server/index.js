@@ -29,6 +29,7 @@ app.get('/', (req, res) => {
 
 // DB Connect String
 const dbString = require('../config/keys').mongoURI;
+console.log(dbString);
 
 // Connect to DB
 mongoose.connect(dbString, { useNewUrlParser: true, useUnifiedTopology: true })
