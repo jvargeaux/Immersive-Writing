@@ -19,8 +19,8 @@
   import Post from '../components/Post.vue';
   import Cafe from '../components/Cafe.vue';
 
-  const API_CAFES_URL = 'http://localhost:5000/api/cafes';
-  const API_POSTS_URL = 'http://localhost:5000/api/posts';
+  const API_CAFES_URL = window.location.hostname + '/api/cafes';
+  const API_POSTS_URL = window.location.hostname + '/api/posts';
   // const API_POST_URL = 'http://localhost:5000/api/posts';
 
   export default {

@@ -17,7 +17,7 @@
   import Cafe from './Cafe.vue';
   import CompactCafe from './CompactCafe.vue';
 
-  const API_URL = 'http://localhost:5000/api/cafes';
+  const API_CAFE_URL = window.location.hostname + '/api/cafes';
 
   export default {
     name: 'CompactCafeList',
@@ -70,7 +70,7 @@
         this.expanded = index;
       },
       apiGetCafes: function() {
-        fetch(API_URL, {
+        fetch(API_CAFE_URL, {
           method: "GET",
           headers: {
             'Accept': 'application/json',

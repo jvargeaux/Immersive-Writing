@@ -25,7 +25,7 @@
 </template>
 
 <script>
-  const DASHBOARD_URL = 'http://localhost:5000/dashboard';
+  const DASHBOARD_URL = window.location.hostname + '/dashboard';
 
   export default {
     name: 'Navigation',

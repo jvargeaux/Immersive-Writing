@@ -12,7 +12,7 @@
 <script>
   import Post from './Post.vue';
 
-  const API_POST_URL = 'http://localhost:5000/api/posts';
+  const API_POST_URL = window.location.hostname + '/api/posts';
 
   export default {
     name: 'Blog',
