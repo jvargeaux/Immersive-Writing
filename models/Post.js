@@ -2,6 +2,21 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 // Create Schema
+const CommentSchema = new Schema({
+  userId: {
+    type: String,
+    required: true
+  },
+  comment: {
+    type: String,
+    required: true
+  },
+  date: {
+    type: Date,
+    default: Date.now
+  }
+});
+
 const PostSchema = new Schema({
   title: {
     type: String,
@@ -11,11 +26,15 @@ const PostSchema = new Schema({
     type: String,
     required: true
   },
-  date: {
+  tags: {
     type: String
   },
-  order: {
-    type: String
+  date: {
+    type: Date,
+    default: Date.now
+  },
+  comments: {
+    type: [CommentSchema]
   }
 });
 

@@ -15,7 +15,7 @@
 
 <style scoped>
   .footer {
-    height: 600px;
+    height: 400px;
     background: linear-gradient(45deg, #2a2a2a, #1d1d1d);
   }
 </style>

@@ -1,7 +1,6 @@
 <template>
   <div class="loginForm">
     <h4>Login</h4>
-    <p class="hint">For test purposes, use "fakeAdmin@gmail.com" for email and "fake" for password.</p>
     <form v-on:submit.prevent="loginClick">
       <div class="inputContainer">
         <span>Email: </span><input type="text" name="email"><br>

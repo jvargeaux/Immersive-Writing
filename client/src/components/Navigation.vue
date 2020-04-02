@@ -3,20 +3,18 @@
     <div class="bgOverlay"></div>
     <div class="bg"></div>
     <div class="accountStatus" v-if="user">
-      <h6>Welcome, {{ user.name }}</h6>
+      <h6>Hey, {{ user.name }}!</h6>
       <button v-on:click="logout">Logout</button>
     </div>
     <div class="accountStatus" v-else>
       <h6><a class="textLink" href=".#/login">Login</a> or <a class="textLink" href=".#/register">Create An Account</a></h6>
     </div>
-    <a href="./"><h1>Cafe Tour Tokyo</h1></a>
+    <a href="./"><h1>Jimmy Loves Coffee</h1></a>
     <nav>
       <ul>
-        <li><router-link to="/">Home</router-link></li>
+        <li><router-link to="/">Blog</router-link></li>
         <li><router-link to="/about">About</router-link></li>
-        <li><router-link to="/list">Cafe List</router-link></li>
-        <!-- <li><router-link to="/map">Map</router-link></li> -->
-        <li v-if="user && user.email === 'fakeAdmin@gmail.com'"><router-link to="/api">API</router-link></li>
+        <li v-if="user && user.email === 'jvargeaux@gmail.com'"><router-link to="/api">API</router-link></li>
         <li v-if="user"><router-link to="/profile">Profile</router-link></li>
         <!-- <li><router-link to="/login">Login</router-link></li> -->
       </ul>
@@ -28,7 +26,7 @@
   const DASHBOARD_URL = window.location.hostname === 'localhost' ?
     'http://' + window.location.hostname + ':5000/dashboard' :
     'https://' + window.location.host + '/dashboard';
-  
+
   export default {
     name: 'Navigation',
     props: {

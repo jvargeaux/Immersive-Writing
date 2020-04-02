@@ -20,12 +20,18 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
   const newPost = new Post({
     title: req.body.title,
-    content: req.body.content
+    content: req.body.content,
+    tags: req.body.tags ? req.body.tags : ''
   });
 
   newPost.save()
-    .then(post => res.json(post))
-    .catch(err => console.log(err));
+    .then(post => {
+      res.status(201).json({ title: post.title });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).send("Unsuccessful. Problem adding post.");
+    });
 })
 
 module.exports = router;

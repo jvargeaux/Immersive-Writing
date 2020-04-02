@@ -2,9 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import About from '../views/About.vue'
-import List from '../views/List.vue'
-import Map from '../views/Map.vue'
 import API from '../views/API.vue'
+import Profile from '../views/Profile.vue'
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 
@@ -22,19 +21,14 @@ const routes = [
     component: About
   },
   {
-    path: '/list',
-    name: 'list',
-    component: List
-  },
-  {
-    path: '/map',
-    name: 'map',
-    component: Map
-  },
-  {
     path: '/api',
     name: 'api',
     component: API
+  },
+  {
+    path: '/profile',
+    name: 'profile',
+    component: Profile
   },
   {
     path: '/login',
