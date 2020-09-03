@@ -1,24 +1,27 @@
 <template>
-  <div class="nav">
-    <div class="bgOverlay"></div>
-    <div class="bg"></div>
-    <div class="accountStatus" v-if="user">
-      <h6>Hey, {{ user.name }}!</h6>
-      <button v-on:click="logout">Logout</button>
+  <div id="navWrapper">
+    <div class="nav" v-if="!navHidden">
+      <div class="bgOverlay"></div>
+      <div class="bg"></div>
+      <div class="accountStatus" v-if="user">
+        <h6>Hey, {{ user.name }}!</h6>
+        <button v-on:click="logout">Logout</button>
+      </div>
+      <div class="accountStatus" v-else>
+        <h6><a class="textLink" href=".#/login">Login</a> or <a class="textLink" href=".#/register">Create An Account</a></h6>
+      </div>
+      <a href="./"><h1>Title</h1></a>
+      <nav>
+          <div class="buttonWrapper"><router-link to="/" class="homeButton">Home</router-link></div>
+          <div class="buttonWrapper"><router-link to="/about" class="aboutButton">About</router-link></div>
+          <div class="buttonWrapper"><router-link to="/writingroom" class="">Writing Room</router-link></div>
+          <li v-if="user && user.email === 'jvargeaux@gmail.com'"><router-link to="/api">API</router-link></li>
+          <li v-if="user"><router-link to="/profile">Profile</router-link></li>
+      </nav>
     </div>
-    <div class="accountStatus" v-else>
-      <h6><a class="textLink" href=".#/login">Login</a> or <a class="textLink" href=".#/register">Create An Account</a></h6>
+    <div class="hideNavButtonWrapper">
+      <button class="hideNavButton" v-on:click="hideNav"><font-awesome-icon icon="angle-down" v-if="navHidden" /><font-awesome-icon icon="angle-up" v-else /></button>
     </div>
-    <a href="./"><h1>Jimmy Loves Coffee</h1></a>
-    <nav>
-      <ul>
-        <li><router-link to="/">Blog</router-link></li>
-        <li><router-link to="/about">About</router-link></li>
-        <li v-if="user && user.email === 'jvargeaux@gmail.com'"><router-link to="/api">API</router-link></li>
-        <li v-if="user"><router-link to="/profile">Profile</router-link></li>
-        <!-- <li><router-link to="/login">Login</router-link></li> -->
-      </ul>
-    </nav>
   </div>
 </template>
 
@@ -29,15 +32,17 @@
 
   export default {
     name: 'Navigation',
-    props: {
-
-    },
     data() {
       return {
-        user: null
+        user: null,
+        navHidden: false
       }
     },
     methods: {
+      hideNav: function() {
+        this.navHidden = !this.navHidden;
+        this.$emit('nav-hide-toggled');
+      },
       checkLoginStatus: function() {
         fetch(DASHBOARD_URL, {
           method: "GET",
@@ -68,13 +73,15 @@
 
   .nav {
     width: 100vw;
+    height: 20vh;
   }
   .bg {
     position: absolute;
     width: 100vw;
-    height: 40vh;
-    background-image: url("../assets/cafe1.jpg");
-    background-position: 50% 50%;
+    height: 30vh;
+    /* background-image: url(""); */
+    background: #1b1b1b;
+    background-position: 0% 0%;
     background-repeat: no-repeat;
     background-size: cover;
     z-index: -99;
@@ -82,9 +89,8 @@
   .bgOverlay {
     position: absolute;
     width: 100vw;
-    height: 40vh;
-    /* background-color: rgba(12,121,61,.6); */
-    background: linear-gradient(0deg, rgba(8,154,74,.4), rgba(22,83,49,.6));
+    height: 30vh;
+    /* background: linear-gradient(0deg, rgba(80,80,80,.5), rgba(22,22,22,.75)); */
     z-index: -80;
   }
 
@@ -139,9 +145,9 @@
     font-size: 52px;
     color: #fff;
     text-shadow: 0px 0px 20px rgba(0,0,0,.5);
-    padding-top: 9vh;
+    padding-top: 4vh;
+    padding-bottom: 4vh;
     text-align: center;
-    margin-bottom: 6vh;
   }
 
   a {
@@ -149,30 +155,43 @@
   }
 
   nav {
-    padding-bottom: 75px;
-  }
-
-  nav ul {
+    margin-bottom: 2vh;
+    margin-top: 2vh;
     display: flex;
     justify-content: center;
+    align-items: center;
   }
 
-  nav ul li {
-    list-style-type: none;
+  .hideNavButtonWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
-
-  nav ul li a {
+  .hideNavButton {
+    position: relative;
+    text-align: center;
     color: #fff;
-    font-size: 18px;
-    font-weight: 500;
-    padding: 12px 36px;
-    background-color: rgba(46,46,46,.5);
+    background: #333;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transform: translateY(20px);
+    z-index: 99;
   }
 
-  nav ul li a:hover {
-    color: #131313;
-    background-color: #f9f9f9;
-    cursor: pointer;
+  .buttonWrapper a {
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 20px;
+    margin: 0 10px;
+    padding: 10px;
+  }
+
+  .buttonWrapper a:hover {
+    color: #fff;
+  }
+
+  .homeButton, .aboutButton {
+
   }
 
 

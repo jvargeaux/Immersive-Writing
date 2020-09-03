@@ -1,7 +1,7 @@
 <template>
   <div class="blog">
     <p id="output"></p>
-    <h1>Blog</h1>
+    <h1>Home</h1>
     <div class="postContainer"
     v-for="(post, index) in posts"
     :key="index">

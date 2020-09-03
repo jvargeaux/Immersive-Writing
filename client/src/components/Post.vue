@@ -2,7 +2,6 @@
   <div class="post">
     <div class="post-header">
       <h3 class="post-title">{{post.title}}</h3>
-      <h5 class="post-location">{{post.location}}</h5>
     </div>
     <h6 class="post-date">{{ formattedDate }}</h6>
     <p class="post-content">{{post.content}}</p>
@@ -24,9 +23,9 @@
     props: {
       post: {
         title: String,
-        location: String,
         date: String,
         content: String,
+        tags: String,
         comments: []
       }
     },
@@ -54,9 +53,6 @@
   .post-title {
     flex: 4;
   }
-  .post-location {
-    flex: 1;
-  }
   .post-date {
   }
   .post-content {
@@ -68,18 +64,14 @@
   }
 
   h3 { /* Title */
-    color: #282828;
+    color: #c6c6c6;
     font-size: 24px;
   }
-  h5 { /* Location */
-    color: #51a26f;
-    font-size: 18px;
-  }
   h6 { /* Date */
-    color: #afafaf;
+    color: #5395a2;
     font-size: 16px;
   }
   p { /* Content */
-    color: #5d5d5d;
+    color: #868686;
   }
 </style>

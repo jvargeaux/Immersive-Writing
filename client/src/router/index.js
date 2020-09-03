@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import About from '../views/About.vue'
+import WritingRoom from '../views/WritingRoom.vue'
 import API from '../views/API.vue'
 import Profile from '../views/Profile.vue'
 import Login from '../views/Login.vue'
@@ -19,6 +20,11 @@ const routes = [
     path: '/about',
     name: 'about',
     component: About
+  },
+  {
+    path: '/writingroom',
+    name: 'writingroom',
+    component: WritingRoom
   },
   {
     path: '/api',
